@@ -3,6 +3,7 @@ import { AiOutlineLinkedin, AiFillGithub } from 'react-icons/ai'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createUser } from '../userAPI';
+import { Dna } from 'react-loader-spinner'
 
 const Login = () => {
   const [user, setUser] = useState<string>('')
@@ -21,7 +22,18 @@ const Login = () => {
   return(
     <>
     {loading && (
-      <h1>Carregando...</h1>
+      <div id='loginLoad'>
+        <h1>Carregando...</h1>
+        <Dna
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="dna-loading"
+          wrapperStyle={{}}
+          wrapperClass="dna-wrapper"
+        />
+
+      </div>
     )}
 
     {!loading && (

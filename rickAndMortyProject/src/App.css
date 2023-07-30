@@ -78,6 +78,15 @@ footer {
   font-size: 20px;
 }
 
+#loginLoad {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 800px;
+}
+
 #mainHome {
   width: 100%;
   height: 100vh;
