@@ -8,8 +8,10 @@ export const StyledBtn = styled.button`
   width: 90px;
   height: 45px;
   margin: 20px;
-  transition: background-color 0.3s ease;
+  transition: 0.3s ease;
   &:hover {
     background-color: #338843;
+    transform: scale(1.1);
+    cursor: pointer;
   }
 `

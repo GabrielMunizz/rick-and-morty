@@ -16,3 +16,7 @@ export type CharacterType = {
   },
   episode: [string]
 }
+
+export type UserType = {
+  name: string;  
+};
