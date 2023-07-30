@@ -12,13 +12,14 @@ const CharactersCard = ({ character }: CharactersCardProp) => {
     image,
   } = character;
   return(
+    <Link to='/home/character/:id'>
     <section key={id} className='card'>
       <img src={image} alt={name} />
-      <div>
-      <p>{`Name: ${name}`}</p>
+      <div className='cardBio'>
+      <p>{`Name: ${name}`}</p>        
       </div>
-      <Link to='/home/character/:id'>See full bio</Link>  
     </section>
+    </Link>
   )
 }
 

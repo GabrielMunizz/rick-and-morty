@@ -4,28 +4,87 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'getSchwifty';
+  src: url('./fonts/get_schwifty.ttf');
+}
+
 body {
   background-color: #191919;
   color: #fff;
 }
 
 header {
+  font-family: 'getSchwifty', sans-serif;
+  font-size: 30px;
   text-align: center;
-  margin: 20px;
+  margin: 40px;
 }
 
 main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;  
 }
 
-#loginContainer {
+footer {
+  display: flex;
+  justify-content: end;
+  width: 95%;
+  height: 100px;   
+  margin-top: 60px;
+}
+
+#devInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 200px;  
+  box-shadow: 0px 0px 2px 0px #ff0000;
+}
+
+#iconsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100px;  
+}
+
+#linkedin, #github {
+  font-size: 35px;
+  transition: 0.3s ease;
+}
+
+#linkedin:hover, #github:hover {
+  transform: scale(1.1);
+}
+
+#loginContainer {  
+  box-shadow: 0px 0px 4px 0px #FFFFFF;  
+}
+
+#loginContainer form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 0px 4px 0px #FFFFFF;  
+}
+
+#loginContainer input {
+  font-size: 20px;
+}
+
+#mainHome {
+  width: 100%;
+  height: 100vh;
+  background-image: url('./images/mainHomeImage.webp');
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  background-attachment: fixed;
 }
 
 .cardContainer {
@@ -38,9 +97,35 @@ main {
 
 .card {
   margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px 0px #000;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
 .card img {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.cardBio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 23px;
+  align-items: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px ;
+  background-color: #8CC13D;  
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

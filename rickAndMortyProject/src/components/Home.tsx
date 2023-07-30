@@ -17,11 +17,9 @@ const Home = () => {
     getApiInfo();
 
   }, [])
-  console.log(characters)
-  console.log(pageNavigation)
-  
+  console.log(pageNavigation); // PARA COLOCAR O NUMERO DE PAGINAS NO RODAPÉ 
   return(
-    <main>
+    <main id='mainHome'>
       <section className='cardContainer'>
         {loading && (
           <h1>Loading...</h1>
