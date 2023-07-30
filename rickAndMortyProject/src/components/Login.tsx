@@ -1,3 +1,4 @@
+import { StyledBtn } from '../style/StyledBtn.style';
 const Login = () => {
   return(
     <>
@@ -14,7 +15,7 @@ const Login = () => {
           <h2>E-mail:</h2>
           <input type="email" name="email" id="" />
           </div>
-          <button>Login</button>
+          <StyledBtn>Login</StyledBtn>
         </form>        
       </section>
     </main>
