@@ -6,17 +6,13 @@ type CharactersCardProp = {
 }
 
 const CharactersCard = ({ character }: CharactersCardProp) => {
-  const {
-    id,
-    name,    
-    image,
-  } = character;
+  const { id, name, image, } = character;
   return(
-    <Link to='/home/character/:id'>
-    <section key={id} className='card'>
-      <img src={image} alt={name} />
+    <Link to={`/home/character/${ id }`}>
+    <section key={ id } className='card'>
+      <img src={ image } alt={ name } />
       <div className='cardBio'>
-      <p>{`Name: ${name}`}</p>        
+      <p>{`Name: ${ name }`}</p>
       </div>
     </section>
     </Link>

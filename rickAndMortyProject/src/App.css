@@ -46,6 +46,12 @@ footer {
   box-shadow: 0px 0px 2px 0px #ff0000;
 }
 
+#devInfo:hover {
+  outline: none;
+  border-color: #84BB3E;
+  box-shadow: 0 0 5px #84BB3E;
+}
+
 #iconsContainer {
   display: flex;
   flex-direction: row;
@@ -76,6 +82,14 @@ footer {
 
 #loginContainer input {
   font-size: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+#loginContainer input:focus {
+  outline: none;
+  border-color: #84BB3E;
+  box-shadow: 0 0 5px #84BB3E;
 }
 
 #loginLoad {
