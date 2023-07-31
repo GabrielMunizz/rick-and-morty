@@ -152,3 +152,18 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+#notFound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #1D2124;  
+}
+
+#notFound img {
+  width: 700px;
+  height: 500px;
+}
