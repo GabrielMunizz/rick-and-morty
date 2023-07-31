@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { CharacterType } from '../types';
 import CharactersCard from './CharactersCard';
+import Loading from './Loading';
 
 const Home = () => {
   const [characters, setCharacters] = useState<CharacterType[]>([]);
@@ -22,7 +23,10 @@ const Home = () => {
     <main id='mainHome'>
       <section className='cardContainer'>
         {loading && (
-          <h1>Loading...</h1>
+          <>
+            <h1>Loading...</h1>
+            <Loading />
+          </>
         )}
         {!loading && (
           characters.map((character) => <CharactersCard key={character.id} character={ character } />)

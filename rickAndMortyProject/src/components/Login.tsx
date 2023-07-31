@@ -27,7 +27,7 @@ const Login = () => {
 
     {!loading && (
       <>
-    <header>
+    <header id='loginHeader'>
       <h1>Welcome to Rick and Mortypedia</h1>
     </header>
     <main>     

@@ -3,7 +3,7 @@ import { Dna } from 'react-loader-spinner'
 const Loading = () => {
   return(
     <div id='loginLoad'>
-        <h1>Carregando...</h1>
+        <h1>Loading...</h1>
         <Dna
           visible={true}
           height="80"
