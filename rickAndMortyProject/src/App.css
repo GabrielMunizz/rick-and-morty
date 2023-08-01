@@ -19,6 +19,8 @@ body {
   font-size: 30px;
   text-align: center;
   margin: 40px;
+  color: #11AFC8; 
+  -webkit-text-stroke: 2px #84BB3E; 
 }
 
 main {

@@ -12,8 +12,10 @@ export const StyledHeader = styled.header`
 
   & #headerTitle {
     font-family: 'getSchwifty', sans-serif;
-    font-size: 40px;
-    text-align: center;    
+    font-size: 50px;
+    text-align: center;
+    color: #11AFC8; 
+    -webkit-text-stroke: 2px #84BB3E;    
   }
 
   & #headerMenu {
@@ -21,6 +23,8 @@ export const StyledHeader = styled.header`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    color: #11AFC8;    
+    font-family: 'Dangrek', cursive;
     width: 100%;
   }
 
