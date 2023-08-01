@@ -6,11 +6,12 @@ import { StyledBtn } from '../style/StyledBtn.style';
 
 const Home = () => {
   const [characters, setCharacters] = useState<CharacterType[]>([]);
-  const [loading, setLoading] = useState(true);  
+  const [loading, setLoading] = useState(false);  
   const [page, setPage] = useState<number>(1)
   const apiUrl = `https://rickandmortyapi.com/api/character?page=${page}`
   useEffect(() => {
     const getApiInfo = async () => {
+      setLoading(true);
       const result = await fetch(apiUrl);
       const data = await result.json();      
       setCharacters(data.results);
@@ -41,8 +42,9 @@ const Home = () => {
           characters.map((character) => <CharactersCard key={character.id} character={ character } />)
         )}
       </section>
-      <div>
+      <div id='homeBtnContainer'>
         <StyledBtn disabled={ page === 1} onClick={ handlePrevious }>Previous</StyledBtn>
+        <h3>{`Page: ${ page }`}</h3>
         <StyledBtn disabled={ page < 42 ? false: true } onClick={ handleNext }>Next</StyledBtn>
       </div>
     </main>
