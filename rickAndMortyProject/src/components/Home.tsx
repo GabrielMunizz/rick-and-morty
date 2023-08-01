@@ -9,6 +9,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);  
   const [page, setPage] = useState<number>(1)
   const apiUrl = `https://rickandmortyapi.com/api/character?page=${page}`
+  
   useEffect(() => {
     const getApiInfo = async () => {
       setLoading(true);
@@ -45,7 +46,7 @@ const Home = () => {
       <div id='homeBtnContainer'>
         <StyledBtn disabled={ page === 1} onClick={ handlePrevious }>Previous</StyledBtn>
         <h3>{`Page: ${ page }`}</h3>
-        <StyledBtn disabled={ page < 42 ? false: true } onClick={ handleNext }>Next</StyledBtn>
+        <StyledBtn disabled={ page === 42 } onClick={ handleNext }>Next</StyledBtn>
       </div>
     </main>
   )
