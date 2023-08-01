@@ -16,4 +16,8 @@ export const StyledBtn = styled.button`
     transform: scale(1.1);
     cursor: pointer;
   }
+  &:disabled {
+    background-color: #808080;
+    transform:none;
+  }
 `

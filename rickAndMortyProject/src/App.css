@@ -44,6 +44,7 @@ footer {
   align-items: center;
   width: 200px;  
   box-shadow: 0px 0px 2px 0px #ff0000;
+  transition: 0.3s ease;
 }
 
 #devInfo:hover {
@@ -222,7 +223,7 @@ a {
   flex-direction: row;
   justify-content: space-between;
   margin: 10px;
-  width: 200px;
+  width: 600px;  
 }
 
 #notFound {

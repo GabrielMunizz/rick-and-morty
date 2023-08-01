@@ -69,7 +69,7 @@ const CharacterPage = () => {
         <div id='episodeLisContainer'>
           <h3>Episode(s):</h3>
           <div id='episodeList'>
-            {episodeNum.map((ep) => <p>{(episodeNum.length === 1) || (episodeNum.indexOf(ep) === episodeNum.length - 1)? `${ep}.` : `${ep}, `}</p> )}            
+            {episodeNum.map((ep) => <p>{(episodeNum.length === 1) || (episodeNum.indexOf(ep) === episodeNum.length - 1) ? `${ep}.` : `${ep}, `}</p> )}            
           </div>
         </div>
       </div>
