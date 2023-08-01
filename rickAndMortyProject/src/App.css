@@ -143,7 +143,7 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 23px;
+  min-height: 23px;
   align-items: center;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px ;
@@ -186,8 +186,7 @@ a {
 
 #charPageCard {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-direction: column;  
   width: 600px;
   height: 400px;
   background-color: #fff;
@@ -238,9 +237,8 @@ a {
 #nxtPrev {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin: 10px;
-  width: 600px;  
+  justify-content: space-between;  
+  width: 100%;  
 }
 
 #notFound {

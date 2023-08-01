@@ -72,10 +72,10 @@ const CharacterPage = () => {
             {episodeNum.map((ep) => <p>{(episodeNum.length === 1) || (episodeNum.indexOf(ep) === episodeNum.length - 1) ? `${ep}.` : `${ep}, `}</p> )}            
           </div>
         </div>
-      </div>
-      <div id='nxtPrev'>
-        <Link to={`/home/character/${idAsNumber  - 1}`}><StyledBtn>Previous</StyledBtn></Link>
-        <Link to={`/home/character/${idAsNumber  + 1}`}><StyledBtn>Next</StyledBtn></Link>
+        <div id='nxtPrev'>
+          <Link to={`/home/character/${idAsNumber  - 1}`}><StyledBtn>Previous</StyledBtn></Link>
+          <Link to={`/home/character/${idAsNumber  + 1}`}><StyledBtn>Next</StyledBtn></Link>
+        </div>
       </div>
     </section>
     )}
