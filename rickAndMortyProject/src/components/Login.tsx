@@ -38,7 +38,7 @@ const Login = () => {
           <h2>Login:</h2>
           <input name='login' type="text" onChange={ handleChange }/>
           </div>
-          <StyledBtn>Login</StyledBtn>
+          <StyledBtn disabled={ user.length < 3 }>Login</StyledBtn>
         </form>        
       </section>
     </main>
