@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Loading from './Loading';
 import { CharacterType } from '../types';
 import { StyledBtn } from '../style/StyledBtn.style';
+import { useNavigate } from 'react-router-dom';
 
 const Search = () => {
   const [loading, setLoading] = useState(false);
@@ -11,6 +12,7 @@ const Search = () => {
   const [resultCount, setResultCount] = useState<number>(0)
   const [totalPages, setTotalPages] = useState<number>(0)
   const [page, setPage] = useState<number>(1);
+  const navigate = useNavigate();
   const { name } = useParams();  
   const searchURL = `https://rickandmortyapi.com/api/character/?page=${ page }&name=${ name as string }`
 
@@ -18,7 +20,10 @@ const Search = () => {
     const findCharacters = async () => {
       setLoading(true);
       const result = await fetch(searchURL)
-      const data = await result.json();      
+      const data = await result.json();
+      if (data.results === undefined) {
+        navigate('*')
+      }   
       setResultCount(data.info.count);
       setTotalPages(data.info.pages);
       setCharactersResult(data.results);
