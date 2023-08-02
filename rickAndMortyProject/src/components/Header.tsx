@@ -1,12 +1,15 @@
 import { getUser } from '../userAPI';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyledBtn } from '../style/StyledBtn.style';
 import { Link } from 'react-router-dom';
 import { UserType } from '../types';
 import { StyledHeader } from '../style/StyledHeader.style';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [user, setUser] = useState<UserType>({name: ''});
+  const [search, setSearch] = useState<string>('')
+  const navigate = useNavigate();
 
   useEffect(() => {
     const userData = async () => {
@@ -15,6 +18,14 @@ const Header = () => {
     }
     userData();
   },[])
+
+  const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(target.value);
+  }
+
+  const handleSubmit = () => {
+    navigate(`/home/search/${ search }`);    
+  }
 
   return(
     <StyledHeader>
@@ -32,10 +43,13 @@ const Header = () => {
         <div>
           <Link to='/'><h2>Log off</h2></Link>
         </div>
-        <div>
-          <input type="text" name='search' placeholder=" Type a character's name"/>
+        <form onSubmit={ handleSubmit }>
+          <input type="text" 
+                 name='search' 
+                 placeholder=" Type a character's name" 
+                 onChange={ handleChange } />
           <StyledBtn>Search</StyledBtn>
-        </div>      
+        </form>      
       </section>
     </StyledHeader>
   )

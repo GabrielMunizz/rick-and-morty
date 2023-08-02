@@ -4,6 +4,7 @@ import Home from './components/Home'
 import CharacterPage from './components/CharacterPage'
 import NotFound from './components/NotFound'
 import Layout from './components/Layout'
+import Search from './components/Search'
 
 import './App.css'
 
@@ -17,6 +18,7 @@ function App() {
         <Route element={ <Layout /> }>
           <Route path='/home' element={ <Home /> } />
           <Route path='/home/character/:id' element={ <CharacterPage /> } />
+          <Route path='/home/search/:name' element={ <Search /> } />
         </Route>
         <Route path='*' element={ <NotFound /> } />
       </Routes>

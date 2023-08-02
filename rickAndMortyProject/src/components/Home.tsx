@@ -31,7 +31,7 @@ const Home = () => {
   }
   
   return(
-    <main id='mainHome'>
+    <main className='mainHome'>
       <section className='cardContainer'>
         {loading && (
           <>
