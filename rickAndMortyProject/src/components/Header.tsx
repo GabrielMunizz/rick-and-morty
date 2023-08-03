@@ -38,7 +38,7 @@ const Header = () => {
           <Link to='/home'><h2>Home</h2></Link>
         </div>
         <div>
-          <h2>Link to Game</h2>
+          <Link to='/home/memoryGame'><h2>Memory Game</h2></Link>
         </div>        
         <div>
           <Link to='/'><h2>Log off</h2></Link>

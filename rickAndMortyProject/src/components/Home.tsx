@@ -14,7 +14,8 @@ const Home = () => {
     const getApiInfo = async () => {
       setLoading(true);
       const result = await fetch(apiUrl);
-      const data = await result.json();      
+      const data = await result.json(); 
+      console.log(data);     
       setCharacters(data.results);
       setLoading(false);  
     }
