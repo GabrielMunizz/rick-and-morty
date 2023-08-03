@@ -52,6 +52,9 @@ const MemoryGame = () => {
   
   return(
     <main id='gameMain'>
+      <div id='gameTitle'>
+      <h1>Memory game</h1>
+      </div>
       <div id='gameGrid'>
         {shuffledChars.map((imageURL) => <GameCard imageURL={ imageURL } />)}        
       </div>
