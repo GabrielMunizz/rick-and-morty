@@ -51,8 +51,8 @@ const MemoryGame = () => {
   const shuffledChars = shuffleArray(finalCharsArray);
   
   return(
-    <main className='gameMain'>
-      <div className='gameGrid'>
+    <main id='gameMain'>
+      <div id='gameGrid'>
         {shuffledChars.map((imageURL) => <GameCard imageURL={ imageURL } />)}        
       </div>
     </main>

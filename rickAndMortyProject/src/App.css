@@ -272,3 +272,38 @@ a {
   padding: 5px;
   box-shadow: 0px 0px 4px 0px #000;
 }
+
+#gameGrid {
+  width: 100%;
+  max-width: 1600px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.gameImagesContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameCard {
+  width: 150px;
+  height: 150px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px 0px #8CC13D;
+  margin: 10px;
+  transition: 0.3s ease;
+}
+
+.gameCard:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.front {
+  background-image: url('./images/gameCardFront.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
