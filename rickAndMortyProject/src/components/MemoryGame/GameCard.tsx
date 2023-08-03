@@ -1,15 +1,16 @@
 
 type imageURLProp = {
   imageURL: string;
+  handleClick: ({ target }: React.MouseEvent<HTMLInputElement>) => void;
 }
 
-const GameCard = ({ imageURL }: imageURLProp) => {
+const GameCard = ({ imageURL, handleClick }: imageURLProp) => {
  
 
   return(
-    <div className='gameCardContainer'>
+    <div className='gameCardContainer ' onClick={ handleClick }>
       <div className='gameCard back' />
-      <img className='gameCard front' src={imageURL} alt="characters image" />
+      <img className='gameCard front ' src={ imageURL } alt="characters image" />
     </div>
   )
 }

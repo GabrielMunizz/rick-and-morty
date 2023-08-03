@@ -5,7 +5,7 @@ const MemoryGame = () => {
   const [randomCharacters, setRandomCharacters] = useState<string[]>([]);
   const [charactersImage, setCharactersImage] = useState<string[]>([]);
   const mirrorImages = charactersImage.slice();
-  const finalCharsArray = charactersImage.concat(mirrorImages);
+  const imagesArray = charactersImage.concat(mirrorImages);
   
   const generateRandomID = () => {   
     const randomId = Math.floor((Math.random() * 826) + 1);
@@ -47,8 +47,13 @@ const MemoryGame = () => {
     array.sort(shuffle);
     return array;
   }
+  const shuffledImages = shuffleArray(imagesArray);
 
-  const shuffledChars = shuffleArray(finalCharsArray);
+  const handleClick = ({ target }: React.MouseEvent<HTMLInputElement>) => {
+    if ((target as HTMLInputElement).parentNode instanceof HTMLDivElement) {
+      ((target as HTMLInputElement).parentNode as HTMLDivElement).classList.add('revealFront');
+    }
+  }
   
   return(
     <main id='gameMain'>
@@ -56,7 +61,7 @@ const MemoryGame = () => {
       <h1>Memory game</h1>
       </div>
       <div id='gameGrid'>
-        {shuffledChars.map((imageURL) => <GameCard imageURL={ imageURL } />)}        
+        {shuffledImages.map((imageURL) => <GameCard handleClick={ handleClick } imageURL={ imageURL } />)}        
       </div>
     </main>
   )
