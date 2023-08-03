@@ -273,44 +273,61 @@ a {
   box-shadow: 0px 0px 4px 0px #000;
 }
 
+#gameMain {
+  width: 100%;
+  min-height: 85vh;
+  background-image: url('./images/memoryGameBG.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #gameTitle {
   font-family: 'Dangrek', cursive;
   margin: 15px;
+  font-size: 28px;
 }
 
 #gameGrid {
+  display: grid;
   width: 100%;
   max-width: 800px;
-  display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 10px;  
+  gap: 15px;
+  margin: 20px auto;
 }
 
-.gameImagesContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+.gameCardContainer {  
+  width: 100%;
+  max-width: 150px;
+  aspect-ratio: 4/4;
+  border-radius: 5px;
   position: relative;
+  transition: all 0.4s ease;
+  transform-style: preserve-3d;
+  box-shadow: 0px 0px 4px 0px #84BB3E;
+}
+
+.gameCardContainer:hover {
+  transform: rotateY(180deg);
+  cursor: pointer;
 }
 
 .gameCard {
   width: 100%;
-  aspect-ratio: 3/3;
-  border-radius: 5px;
-  box-shadow: 0px 0px 4px 0px #8CC13D;  
-  transition: 0.3s ease;
-}
-
-.gameCard:hover {
-  transform: scale(1.1);
-  cursor: pointer;
+  height: 100%;
+  position: absolute;
 }
 
 .front {
+  transform: rotateY(180deg);
+}
+
+.back {
   background-image: url('./images/gameCardFront.jpeg');
-  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  position: absolute;
+  background-position: center;
+  backface-visibility: hidden;
+  z-index: 1;
 }

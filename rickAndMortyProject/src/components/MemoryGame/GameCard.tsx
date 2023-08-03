@@ -7,9 +7,9 @@ const GameCard = ({ imageURL }: imageURLProp) => {
  
 
   return(
-    <div className='gameImagesContainer'>
-      <div className='gameCard front' />
-      <img className='gameCard back' src={imageURL} alt="characters image" />
+    <div className='gameCardContainer'>
+      <div className='gameCard back' />
+      <img className='gameCard front' src={imageURL} alt="characters image" />
     </div>
   )
 }
