@@ -1,14 +1,22 @@
+import { useState } from 'react';
 
 type imageURLProp = {
-  imageURL: string;
-  handleClick: ({ target }: React.MouseEvent<HTMLInputElement>) => void;
+  imageURL: string;  
 }
 
-const GameCard = ({ imageURL, handleClick }: imageURLProp) => {
+const GameCard = ({ imageURL }: imageURLProp) => {
+  const [revealFront, setRevealFront] = useState<string>('');
  
+  const handleClick = () => { 
+    if (revealFront === '') {
+      setRevealFront('revealFront');
+    } else {
+      setRevealFront('');
+    }
+  }
 
   return(
-    <div className='gameCardContainer ' onClick={ handleClick }>
+    <div className={`gameCardContainer ${revealFront}`} onClick={ handleClick }>
       <div className='gameCard back' />
       <img className='gameCard front ' src={ imageURL } alt="characters image" />
     </div>

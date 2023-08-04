@@ -48,20 +48,14 @@ const MemoryGame = () => {
     return array;
   }
   const shuffledImages = shuffleArray(imagesArray);
-
-  const handleClick = ({ target }: React.MouseEvent<HTMLInputElement>) => {
-    if ((target as HTMLInputElement).parentNode instanceof HTMLDivElement) {
-      ((target as HTMLInputElement).parentNode as HTMLDivElement).classList.add('revealFront');
-    }
-  }
-  
+   
   return(
     <main id='gameMain'>
       <div id='gameTitle'>
       <h1>Memory game</h1>
       </div>
       <div id='gameGrid'>
-        {shuffledImages.map((imageURL) => <GameCard handleClick={ handleClick } imageURL={ imageURL } />)}        
+        {shuffledImages.map((imageURL) => <GameCard imageURL={ imageURL } />)}        
       </div>
     </main>
   )
