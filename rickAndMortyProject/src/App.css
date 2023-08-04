@@ -309,11 +309,10 @@ a {
 }
 
 .gameCardContainer:hover {  
-  transform: scale(1.1) rotateY(0deg); 
   cursor: pointer;  
 }
 
-.revealFront:hover {
+.revealFront {
   transform: rotateY(180deg) scale(1.1);
 }
 

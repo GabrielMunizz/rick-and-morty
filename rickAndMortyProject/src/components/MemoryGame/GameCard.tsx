@@ -7,11 +7,13 @@ type imageURLProp = {
 const GameCard = ({ imageURL }: imageURLProp) => {
   const [revealFront, setRevealFront] = useState<string>('');
  
-  const handleClick = () => { 
+  const handleClick = ({target}: React.MouseEvent<HTMLInputElement>) => { 
     if (revealFront === '') {
       setRevealFront('revealFront');
+      console.log(target);
     } else {
       setRevealFront('');
+      console.log(target);
     }
   }
 
