@@ -1,5 +1,6 @@
 import GameCard from './GameCard';
 import { useState, useEffect } from 'react';
+import uuid from 'react-uuid';
 
 const MemoryGame = () => {    
   const [randomCharacters, setRandomCharacters] = useState<string[]>([]);
@@ -48,30 +49,37 @@ const MemoryGame = () => {
     return array;
   }
   const shuffledImages = shuffleArray(imagesArray);
-
+  
+  
   const [memoryFirstImg, setMemoryFirstImg] = useState<string>('');
   const [memorySecondImg, setMemorySecondImg] = useState<string>('');
  
-  const handleClick = (url: string) => { 
-
+  const handleClick = (url: string) => {    
     if (!memoryFirstImg) {
-      setMemoryFirstImg(url);
-    } else if ((memoryFirstImg) && !memorySecondImg) {
-      setMemorySecondImg(url);
-    }    
+      setMemoryFirstImg(url);              
+    } else if (!memorySecondImg) {
+      setMemorySecondImg(url);            
+    }
+       
   }
-  
-  console.log(`Firs IMAGE = ${memoryFirstImg}`);
+  console.log(`First IMAGE = ${memoryFirstImg}`);
   console.log(`Second IMAGE = ${memorySecondImg}`)
+  
+  
 
-   
+
   return(
     <main id='gameMain'>
       <div id='gameTitle'>
       <h1>Memory game</h1>
       </div>
       <div id='gameGrid'>
-        {shuffledImages.map((imageURL) => <GameCard imageURL={ imageURL } handleClick={ handleClick } />)}        
+        {shuffledImages.map((imageURL) => <GameCard  
+                                            key={uuid()}
+                                            imageURL={ imageURL } 
+                                            handleClick={ handleClick } 
+                                            memoryFirstImg={memoryFirstImg}
+                                            memorySecondImg={memorySecondImg}/>)}        
       </div>
     </main>
   )

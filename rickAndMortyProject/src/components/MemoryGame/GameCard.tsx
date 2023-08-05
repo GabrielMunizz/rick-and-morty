@@ -1,21 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 type imageURLProp = {
   imageURL: string;
-  handleClick: (url: string) => void;    
+  handleClick: (url: string) => void;
+  memoryFirstImg: string;
+  memorySecondImg: string;    
 }
 
-const GameCard = ({ imageURL, handleClick }: imageURLProp) => {
+const GameCard = ({ imageURL, handleClick, memoryFirstImg, memorySecondImg }: imageURLProp) => {
   const [revealFront, setRevealFront] = useState<string>(''); 
 
-  const handleReveal = () => {
-    if (!revealFront) {
-      setRevealFront('revealFront')
+  useEffect(() => {
+    if (memoryFirstImg === imageURL || memorySecondImg === imageURL) {
+      setRevealFront('revealFront');
+    } else {
+      setRevealFront('');
     }
-  }
-
+  }, [imageURL, memoryFirstImg, memorySecondImg])
+  
   return(
-    <div className={`gameCardContainer ${revealFront}`} onClick={ () => (handleClick(imageURL), handleReveal()) }>
+    <div className={`gameCardContainer ${revealFront}`} onClick={() => handleClick(imageURL) }>
       <div className='gameCard back'/>
       <img className='gameCard front ' 
            src={ imageURL } 
