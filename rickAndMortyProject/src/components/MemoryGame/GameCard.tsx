@@ -1,31 +1,21 @@
 import { useState } from 'react';
 
 type imageURLProp = {
-  imageURL: string;  
+  imageURL: string;
+  handleClick: (url: string) => void;    
 }
 
-const GameCard = ({ imageURL }: imageURLProp) => {
-  const [revealFront, setRevealFront] = useState<string>('');
-  const [targetImgURL, setTargetImgURL] = useState<string>('');
-  const [compareImages, setCompareImages] = useState<string>('');
- 
-  const handleClick = () => { 
+const GameCard = ({ imageURL, handleClick }: imageURLProp) => {
+  const [revealFront, setRevealFront] = useState<string>(''); 
+
+  const handleReveal = () => {
     if (!revealFront) {
-      setRevealFront('revealFront');         
-    }
-    if (targetImgURL === '') {
-      setTargetImgURL(imageURL);
-    } else if (targetImgURL && compareImages === '') {
-      setCompareImages(imageURL);
+      setRevealFront('revealFront')
     }
   }
-  
-  console.log(`targetIMAGE = ${targetImgURL}`);
-  console.log(`compareIMAGE = ${compareImages}`)
-
 
   return(
-    <div className={`gameCardContainer ${revealFront}`} onClick={ handleClick }>
+    <div className={`gameCardContainer ${revealFront}`} onClick={ () => (handleClick(imageURL), handleReveal()) }>
       <div className='gameCard back'/>
       <img className='gameCard front ' 
            src={ imageURL } 

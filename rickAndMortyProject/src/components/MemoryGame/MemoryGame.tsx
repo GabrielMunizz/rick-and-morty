@@ -48,6 +48,22 @@ const MemoryGame = () => {
     return array;
   }
   const shuffledImages = shuffleArray(imagesArray);
+
+  const [memoryFirstImg, setMemoryFirstImg] = useState<string>('');
+  const [memorySecondImg, setMemorySecondImg] = useState<string>('');
+ 
+  const handleClick = (url: string) => { 
+
+    if (!memoryFirstImg) {
+      setMemoryFirstImg(url);
+    } else if ((memoryFirstImg) && !memorySecondImg) {
+      setMemorySecondImg(url);
+    }    
+  }
+  
+  console.log(`Firs IMAGE = ${memoryFirstImg}`);
+  console.log(`Second IMAGE = ${memorySecondImg}`)
+
    
   return(
     <main id='gameMain'>
@@ -55,7 +71,7 @@ const MemoryGame = () => {
       <h1>Memory game</h1>
       </div>
       <div id='gameGrid'>
-        {shuffledImages.map((imageURL) => <GameCard imageURL={ imageURL } />)}        
+        {shuffledImages.map((imageURL) => <GameCard imageURL={ imageURL } handleClick={ handleClick } />)}        
       </div>
     </main>
   )
