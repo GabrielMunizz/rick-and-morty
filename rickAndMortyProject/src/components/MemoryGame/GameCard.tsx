@@ -9,17 +9,15 @@ type imageURLProp = {
 
 const GameCard = ({ imageURL, handleClick, memoryFirstImg, memorySecondImg }: imageURLProp) => {
   const [revealFront, setRevealFront] = useState<string>(''); 
-
-  useEffect(() => {
-    if (memoryFirstImg === imageURL || memorySecondImg === imageURL) {
-      setRevealFront('revealFront');
-    } else {
-      setRevealFront('');
-    }
-  }, [imageURL, memoryFirstImg, memorySecondImg])
   
+  useEffect(() => {
+    if (memoryFirstImg === imageURL){
+      setRevealFront('revealFront');
+    }
+  }, [memoryFirstImg, memorySecondImg])
+    
   return(
-    <div className={`gameCardContainer ${revealFront}`} onClick={() => handleClick(imageURL) }>
+    <div className={`gameCardContainer ${ revealFront }`} onClick={() => handleClick(imageURL) }>
       <div className='gameCard back'/>
       <img className='gameCard front ' 
            src={ imageURL } 

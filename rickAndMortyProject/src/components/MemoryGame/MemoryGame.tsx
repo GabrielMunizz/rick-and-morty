@@ -56,7 +56,7 @@ const MemoryGame = () => {
  
   const handleClick = (url: string) => {    
     if (!memoryFirstImg) {
-      setMemoryFirstImg(url);              
+      setMemoryFirstImg(url);          
     } else if (!memorySecondImg) {
       setMemorySecondImg(url);            
     }
