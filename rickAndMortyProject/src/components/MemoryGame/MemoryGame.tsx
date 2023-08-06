@@ -1,18 +1,13 @@
 import GameCard from './GameCard';
 import { useState, useEffect } from 'react';
 import uuid from 'react-uuid';
+import { CardType, initialCard, shuffleArray, generateRandomID } from '../../types';
 
 const MemoryGame = () => {    
   const [randomCharacters, setRandomCharacters] = useState<string[]>([]);
-  const [charactersImage, setCharactersImage] = useState<string[]>([]);
-  const mirrorImages = charactersImage.slice();
-  const imagesArray = charactersImage.concat(mirrorImages);
+  const [charactersImage, setCharactersImage] = useState<string[]>([]); 
+  const imagesArray = charactersImage.concat(charactersImage);
   
-  const generateRandomID = () => {   
-    const randomId = Math.floor((Math.random() * 826) + 1);
-    return randomId;
-  }
-
   useEffect(() => {    
       const randomURLs = [];
 
@@ -37,49 +32,42 @@ const MemoryGame = () => {
         return data.image;
       })
       const images = await Promise.all(fetchPromises);
-      setCharactersImage(images);
-      
+      setCharactersImage(images);     
     }
     getImage();
   }, [randomCharacters])
   
-  const shuffleArray = (array: string[]) => {
-    const shuffle = () => Math.random() - 0.5;
-    array.sort(shuffle);
-    return array;
-  }
+  
   const shuffledImages = shuffleArray(imagesArray);
-  
-  
-  const [memoryFirstImg, setMemoryFirstImg] = useState<string>('');
-  const [memorySecondImg, setMemorySecondImg] = useState<string>('');
- 
-  const handleClick = (url: string) => {    
-    if (!memoryFirstImg) {
-      setMemoryFirstImg(url);          
-    } else if (!memorySecondImg) {
-      setMemorySecondImg(url);            
+
+ const [selectedCard, setSelectedCard] = useState<CardType>(initialCard)
+ const [firstSelectedCard, setFirstSelectedCard] = useState<CardType>(initialCard); 
+ const [secondSelectedCard, setSecondSelectedCard] = useState<CardType>(initialCard);
+
+ const handleClick = (id: number, url: string) => {
+    if (selectedCard.image === ''){
+      setSelectedCard({id: id, image: url, selected: 'revealFront'});
+      setFirstSelectedCard(selectedCard);                 
+    } else if (secondSelectedCard.image === '') {
+      setSecondSelectedCard({id: id, image: url, selected: 'revealFront'});
     }
-       
-  }
-  console.log(`First IMAGE = ${memoryFirstImg}`);
-  console.log(`Second IMAGE = ${memorySecondImg}`)
-  
-  
-
-
+    
+ }
+ 
   return(
     <main id='gameMain'>
       <div id='gameTitle'>
       <h1>Memory game</h1>
       </div>
       <div id='gameGrid'>
-        {shuffledImages.map((imageURL) => <GameCard  
-                                            key={uuid()}
+        {shuffledImages.map((imageURL, index) => <GameCard  
+                                            key={uuid()} 
+                                            id={index}                                           
                                             imageURL={ imageURL } 
-                                            handleClick={ handleClick } 
-                                            memoryFirstImg={memoryFirstImg}
-                                            memorySecondImg={memorySecondImg}/>)}        
+                                            selectedCard={ selectedCard }
+                                            firstSelectedCard={ firstSelectedCard } 
+                                            secondSelectedCard={ secondSelectedCard }                                        
+                                            handleClick={ handleClick } />)}
       </div>
     </main>
   )

@@ -1,25 +1,28 @@
-import { useState, useEffect } from 'react';
+import { CardType } from '../../types';
 
 type imageURLProp = {
-  imageURL: string;
-  handleClick: (url: string) => void;
-  memoryFirstImg: string;
-  memorySecondImg: string;    
+  imageURL: string;   
+  id: number; 
+  handleClick: (id: number, url: string) => void;
+  selectedCard: CardType;
+  firstSelectedCard: CardType;
+  secondSelectedCard: CardType;  
 }
 
-const GameCard = ({ imageURL, handleClick, memoryFirstImg, memorySecondImg }: imageURLProp) => {
-  const [revealFront, setRevealFront] = useState<string>(''); 
+const GameCard = ({ imageURL, id, handleClick, selectedCard }: imageURLProp) => {
+  // const [revealFront, setRevealFront] = useState<string>('');
+
+  // const handleReveal = () => {
+  //   if (revealFront === '') {
+  //     setRevealFront('revealFront')      
+  //   }
+  // }
   
-  useEffect(() => {
-    if (memoryFirstImg === imageURL){
-      setRevealFront('revealFront');
-    }
-  }, [memoryFirstImg, memorySecondImg])
-    
+      
   return(
-    <div className={`gameCardContainer ${ revealFront }`} onClick={() => handleClick(imageURL) }>
+    <div className={`gameCardContainer ${ selectedCard.id === id ? selectedCard.selected : '' }`}  onClick={() => handleClick(id, imageURL)}>
       <div className='gameCard back'/>
-      <img className='gameCard front ' 
+      <img className='gameCard front' 
            src={ imageURL } 
            alt="characters image" 
             />

@@ -17,6 +17,29 @@ export type CharacterType = {
   episode: [string]
 }
 
+export type CardType = {
+  id: number,
+  image: string,
+  selected: string,
+}
+
 export type UserType = {
   name: string;  
 };
+
+export const initialCard = {
+  id: 0,
+  image: '',
+  selected: '',
+}
+
+export const shuffleArray = (array: string[]) => {
+  const shuffle = () => Math.random() - 0.5;
+  array.sort(shuffle);
+  return array;
+}
+
+export const generateRandomID = () => {   
+  const randomId = Math.floor((Math.random() * 826) + 1);
+  return randomId;
+}
