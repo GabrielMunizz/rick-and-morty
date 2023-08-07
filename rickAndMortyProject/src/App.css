@@ -282,6 +282,10 @@ a {
   background-size: cover;
 }
 
+#gameMain h2 {
+  font-family: 'Dangrek', cursive;
+}
+
 #gameTitle {
   font-family: 'Dangrek', cursive;
   margin: 15px;

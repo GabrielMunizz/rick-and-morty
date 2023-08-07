@@ -1,12 +1,11 @@
 import GameCard from './GameCard';
 import { useState, useEffect } from 'react';
 import uuid from 'react-uuid';
-import { CardType, initialCard, shuffleArray, generateRandomID } from '../../types';
+import { CardType, shuffleArray, generateRandomID } from '../../types';
 
 const MemoryGame = () => {    
   const [randomCharacters, setRandomCharacters] = useState<string[]>([]);
-  const [charactersImage, setCharactersImage] = useState<string[]>([]); 
-  const imagesArray = charactersImage.concat(charactersImage);
+  const [charactersImage, setCharactersImage] = useState<string[]>([]);  
   
   useEffect(() => {    
       const randomURLs = [];
@@ -32,41 +31,40 @@ const MemoryGame = () => {
         return data.image;
       })
       const images = await Promise.all(fetchPromises);
-      setCharactersImage(images);     
+      const doubleImages = images.concat(images);
+      setCharactersImage(shuffleArray(doubleImages));     
     }
     getImage();
   }, [randomCharacters])
-  
-  
-  const shuffledImages = shuffleArray(imagesArray);
 
- const [selectedCard, setSelectedCard] = useState<CardType>(initialCard)
- const [firstSelectedCard, setFirstSelectedCard] = useState<CardType>(initialCard); 
- const [secondSelectedCard, setSecondSelectedCard] = useState<CardType>(initialCard);
+   
+ const [selectedCard, setSelectedCard] = useState<CardType[]>([]);  
+ const [revealFront, setRevealFront] = useState('');
+ const [match, setMatch] = useState(0);
 
  const handleClick = (id: number, url: string) => {
-    if (selectedCard.image === ''){
-      setSelectedCard({id: id, image: url, selected: 'revealFront'});
-      setFirstSelectedCard(selectedCard);                 
-    } else if (secondSelectedCard.image === '') {
-      setSecondSelectedCard({id: id, image: url, selected: 'revealFront'});
-    }
-    
- }
- 
+    if (selectedCard.length < 2){
+      setSelectedCard([...selectedCard, { id: id, image: url }]);
+      if (revealFront === '') {
+        setRevealFront('revealFront');        
+      }      
+    }    
+  }
+  
+  console.log('selecionada =',selectedCard); 
   return(
     <main id='gameMain'>
       <div id='gameTitle'>
       <h1>Memory game</h1>
       </div>
+      <h2>{`Match: ${ match }`}</h2>
       <div id='gameGrid'>
-        {shuffledImages.map((imageURL, index) => <GameCard  
+        {charactersImage.map((imageURL, index) => <GameCard  
                                             key={uuid()} 
                                             id={index}                                           
-                                            imageURL={ imageURL } 
-                                            selectedCard={ selectedCard }
-                                            firstSelectedCard={ firstSelectedCard } 
-                                            secondSelectedCard={ secondSelectedCard }                                        
+                                            imageURL={ imageURL }
+                                            revealFront={revealFront}
+                                            selectedCard={selectedCard}                                          
                                             handleClick={ handleClick } />)}
       </div>
     </main>

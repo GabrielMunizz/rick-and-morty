@@ -19,19 +19,12 @@ export type CharacterType = {
 
 export type CardType = {
   id: number,
-  image: string,
-  selected: string,
+  image: string,  
 }
 
 export type UserType = {
   name: string;  
 };
-
-export const initialCard = {
-  id: 0,
-  image: '',
-  selected: '',
-}
 
 export const shuffleArray = (array: string[]) => {
   const shuffle = () => Math.random() - 0.5;
