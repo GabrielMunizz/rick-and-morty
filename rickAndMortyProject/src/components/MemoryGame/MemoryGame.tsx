@@ -65,8 +65,7 @@ const MemoryGame = () => {
     if (selectedCard.length === 2) {
       setTimeout(() => {
         checkRevealed();
-      }, 750)
-      
+      }, 750)      
     }
   });
 
