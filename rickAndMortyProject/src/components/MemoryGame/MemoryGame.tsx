@@ -72,13 +72,14 @@ const MemoryGame = () => {
   console.log(matchedCards);
   return(
     <>
-    {loading && <Loading />}
+    {loading && <Loading />}   
     {!loading && (
       <main id='gameMain'>
         <div id='gameTitle'>
         <h1>Memory game</h1>
         </div>
         <h2>Match: <span>{ match }</span></h2>
+        <button className={match === 10 ? 'btnShow' : 'btnNone'}>Try Again</button>
         <div id='gameGrid'>
           {charactersImage.map((imageURL, index) => <GameCard  
                                                       key={uuid()} 

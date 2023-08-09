@@ -348,3 +348,21 @@ a {
 .back:hover {
   transform: scale(1.1);
 }
+
+.btnNone {
+  display: none;
+}
+
+.btnShow {
+  display: block;
+  width: 100px;
+  height: 30px;
+  font-size: 15px;
+  background-color: #11AFC8;
+  border-radius: 5px;
+  border: none;
+}
+
+.btnShow:hover {
+  cursor: pointer;
+}
