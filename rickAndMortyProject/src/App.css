@@ -292,6 +292,10 @@ a {
   font-size: 28px;
 }
 
+#gameMain span {
+  color: #00FC1B;
+}
+
 #gameGrid {
   display: grid;
   width: 100%;

@@ -3,11 +3,14 @@ import { useState, useEffect } from 'react';
 import uuid from 'react-uuid';
 import { CardType } from '../../types';
 import { generateRandomID, shuffleArray } from '../../utils';
+import Loading from '../Loading';
 
-const MemoryGame = () => {    
+const MemoryGame = () => {
+  const [loading, setLoading] = useState(true); 
   const [randomCharacters, setRandomCharacters] = useState<string[]>([]);
   const [charactersImage, setCharactersImage] = useState<string[]>([]);  
   const [selectedCard, setSelectedCard] = useState<CardType[]>([]);  
+  const [matchedCards, setMatchedCards] = useState<CardType[]>([]);
   const [revealFront, setRevealFront] = useState<string>('');
   const [match, setMatch] = useState<number>(0);
   
@@ -30,40 +33,67 @@ const MemoryGame = () => {
         const data = await result.json();        
         return data.image;
       })
+
       const images = await Promise.all(fetchPromises);
       const mirrorImages = images.concat(images);
       setCharactersImage(shuffleArray(mirrorImages));
+      setLoading(false);
     }
     getImage();
   }, [randomCharacters])
 
+ const checkRevealed = () => {
+    if (selectedCard[0].image === selectedCard[1].image) {
+      if (selectedCard[0].id !== selectedCard[1].id) {
+        setMatchedCards([...matchedCards, ...selectedCard])
+        setMatch(match + 1); 
+      }
+    }
+      setSelectedCard([]);    
+ }
+  
  const handleClick = (id: number, url: string) => {
     if (selectedCard.length < 2){
       setSelectedCard([...selectedCard, { id: id, image: url }]);
       if (revealFront === '') {
-        setRevealFront('revealFront');        
-      }      
+        setRevealFront('revealFront');  
+      }    
     }    
-  }
-  
-  console.log('selecionada =',selectedCard); 
+  }  
+
+  useEffect(() => {
+    if (selectedCard.length === 2) {
+      setTimeout(() => {
+        checkRevealed();
+      }, 750)
+      
+    }
+  });
+
+  console.log(matchedCards);
   return(
-    <main id='gameMain'>
-      <div id='gameTitle'>
-      <h1>Memory game</h1>
-      </div>
-      <h2>{`Match: ${ match }`}</h2>
-      <div id='gameGrid'>
-        {charactersImage.map((imageURL, index) => <GameCard  
-                                                    key={uuid()} 
-                                                    id={index}                                           
-                                                    imageURL={ imageURL }
-                                                    revealFront={revealFront}
-                                                    selectedCard={selectedCard}                                          
-                                                    handleClick={ handleClick } 
-                                                    />)}
-      </div>
-    </main>
+    <>
+    {loading && <Loading />}
+    {!loading && (
+      <main id='gameMain'>
+        <div id='gameTitle'>
+        <h1>Memory game</h1>
+        </div>
+        <h2>Match: <span>{ match }</span></h2>
+        <div id='gameGrid'>
+          {charactersImage.map((imageURL, index) => <GameCard  
+                                                      key={uuid()} 
+                                                      id={index}                                           
+                                                      imageURL={ imageURL }
+                                                      revealFront={revealFront}
+                                                      selectedCard={selectedCard}
+                                                      matchedCards={matchedCards}                                         
+                                                      handleClick={ handleClick } 
+                                                      />)}
+        </div>
+      </main>
+    )}      
+    </>
   )
 }
 
