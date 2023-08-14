@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'getSchwifty';
+  src: url('./fonts/get_schwifty.ttf');
+}
+
+body {
+  background-color: #191919;
+  color: #fff;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;  
+}
+
+footer {
+  display: flex;
+  justify-content: end;
+  width: 95%;
+  height: 100px;   
+  margin-top: 60px;
+}
+
+.mainHome {
+  width: 100%;
+  min-height: 85vh;
+  background-image: url('./images/mainHomeImage.webp');
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  background-attachment: fixed;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
