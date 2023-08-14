@@ -1,9 +1,10 @@
-import { StyledBtn } from '../style/StyledBtn.style';
+import { StyledBtn } from '../../style/StyledBtn.style';
 import { AiOutlineLinkedin, AiFillGithub } from 'react-icons/ai'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { createUser } from '../userAPI';
-import Loading from './Loading';
+import { createUser } from '../../userAPI';
+import Loading from '../Loading/Loading';
+import './Login.css'
 
 const Login = () => {
   const [user, setUser] = useState<string>('')

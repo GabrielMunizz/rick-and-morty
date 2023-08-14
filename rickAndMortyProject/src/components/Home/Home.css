@@ -1,0 +1,23 @@
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+#homeBtnContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#homeBtnContainer h3 {
+  font-size: 20px;
+  color: #000;
+  background-color: #faebd7;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0px 0px 4px 0px #000;
+}

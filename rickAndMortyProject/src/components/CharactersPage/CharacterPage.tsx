@@ -1,9 +1,10 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { CharacterType } from '../types';
+import { CharacterType } from '../../types';
 import { Link } from 'react-router-dom';
-import { StyledBtn } from '../style/StyledBtn.style';
-import Loading from './Loading';
+import { StyledBtn } from '../../style/StyledBtn.style';
+import Loading from '../Loading/Loading';
+import './CharacterPage.css'
 
 const initialChar = {
 id: 0,

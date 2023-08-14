@@ -1,4 +1,5 @@
-import { CardType } from '../../types';
+import { CardType } from '../../../types';
+import './GameCard.css'
 
 type imageURLProp = {
   imageURL: string;   
@@ -20,7 +21,7 @@ const GameCard = ({ imageURL, id, handleClick, revealFront, selectedCard, matche
       <div className='gameCard back'/>
       <img className='gameCard front' 
            src={ imageURL } 
-           alt="characters image" 
+           alt="character's image" 
             />
     </div>
   )

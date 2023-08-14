@@ -1,10 +1,11 @@
-import CharactersCard from './CharactersCard';
+import CharactersCard from '../CharactersCard/CharactersCard';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Loading from './Loading';
-import { CharacterType } from '../types';
-import { StyledBtn } from '../style/StyledBtn.style';
+import Loading from '../Loading/Loading';
+import { CharacterType } from '../../types';
+import { StyledBtn } from '../../style/StyledBtn.style';
 import { useNavigate } from 'react-router-dom';
+import './Search.css'
 
 const Search = () => {
   const [loading, setLoading] = useState(false);

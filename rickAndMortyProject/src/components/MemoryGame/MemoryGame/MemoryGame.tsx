@@ -1,9 +1,12 @@
-import GameCard from './GameCard';
+import GameCard from '../GameCard/GameCard';
 import { useState, useEffect } from 'react';
 import uuid from 'react-uuid';
-import { CardType } from '../../types';
-import { generateRandomID, shuffleArray } from '../../utils';
-import Loading from '../Loading';
+import { CardType } from '../../../types';
+import { generateRandomID, shuffleArray } from '../../../utils';
+import Loading from '../../Loading/Loading';
+import Modal from '../Modal/Modal';
+import './MemoryGame.css'
+
 
 const MemoryGame = () => {
   const [loading, setLoading] = useState(true); 
@@ -61,6 +64,7 @@ const MemoryGame = () => {
     }    
   }  
 
+  // useEffect just to check if cards match
   useEffect(() => {
     if (selectedCard.length === 2) {
       setTimeout(() => {
@@ -68,18 +72,17 @@ const MemoryGame = () => {
       }, 750)      
     }
   });
-
-  console.log(matchedCards);
+  
   return(
     <>
-    {loading && <Loading />}   
+    {loading && <Loading />}
+    {match === 10 && <Modal />} 
     {!loading && (
       <main id='gameMain'>
         <div id='gameTitle'>
         <h1>Memory game</h1>
         </div>
-        <h2>Match: <span>{ match }</span></h2>
-        <button className={match === 10 ? 'btnShow' : 'btnNone'}>Try Again</button>
+        <h2>Match: <span>{ match }</span></h2>        
         <div id='gameGrid'>
           {charactersImage.map((imageURL, index) => <GameCard  
                                                       key={uuid()} 

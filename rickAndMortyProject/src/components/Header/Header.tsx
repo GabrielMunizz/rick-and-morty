@@ -1,9 +1,9 @@
-import { getUser } from '../userAPI';
+import { getUser } from '../../userAPI';
 import React, { useState, useEffect } from 'react';
-import { StyledBtn } from '../style/StyledBtn.style';
+import { StyledBtn } from '../../style/StyledBtn.style';
 import { Link } from 'react-router-dom';
-import { UserType } from '../types';
-import { StyledHeader } from '../style/StyledHeader.style';
+import { UserType } from '../../types';
+import { StyledHeader } from '../../style/StyledHeader.style';
 import { useNavigate } from 'react-router-dom';
 
 const Header = () => {

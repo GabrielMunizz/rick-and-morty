@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { CharacterType } from '../types';
-import CharactersCard from './CharactersCard';
-import Loading from './Loading';
-import { StyledBtn } from '../style/StyledBtn.style';
+import { CharacterType } from '../../types';
+import CharactersCard from '../CharactersCard/CharactersCard';
+import Loading from '../Loading/Loading';
+import { StyledBtn } from '../../style/StyledBtn.style';
+import './Home.css'
 
 const Home = () => {
   const [characters, setCharacters] = useState<CharacterType[]>([]);

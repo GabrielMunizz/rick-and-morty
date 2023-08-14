@@ -1,5 +1,6 @@
-import { CharacterType } from '../types';
+import { CharacterType } from '../../types';
 import { Link } from 'react-router-dom';
+import './CharactersCard.css'
 
 type CharactersCardProp = {
   character: CharacterType

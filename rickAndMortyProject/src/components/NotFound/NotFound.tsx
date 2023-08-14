@@ -1,7 +1,8 @@
-import { StyledBtn } from '../style/StyledBtn.style';
+import { StyledBtn } from '../../style/StyledBtn.style';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import Loading from './Loading';
+import Loading from '../Loading/Loading';
+import './NotFound.css'
 
 const NotFound = () => {
   const [loading, setLoading] = useState(false);

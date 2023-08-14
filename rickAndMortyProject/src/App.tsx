@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router-dom'
-import Login from './components/Login'
-import Home from './components/Home'
-import CharacterPage from './components/CharacterPage'
-import NotFound from './components/NotFound'
+import Login from './components/Login/Login'
+import Home from './components/Home/Home'
+import CharacterPage from './components/CharactersPage/CharacterPage'
+import NotFound from './components/NotFound/NotFound'
 import Layout from './components/Layout'
-import Search from './components/Search'
-import MemoryGame from './components/MemoryGame/MemoryGame'
+import Search from './components/Search/Search'
+import MemoryGame from './components/MemoryGame/MemoryGame/MemoryGame'
 
 import './App.css'
 

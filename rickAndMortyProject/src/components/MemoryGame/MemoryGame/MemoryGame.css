@@ -1,0 +1,31 @@
+#gameMain {
+  width: 100%;
+  min-height: 85vh;
+  background-image: url('../../../images/memoryGameBG.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#gameMain span {
+  color: #00FC1B;
+}
+
+#gameMain h2 {
+  font-family: 'Dangrek', cursive;
+}
+
+#gameTitle {
+  font-family: 'Dangrek', cursive;
+  margin: 8px;
+  font-size: 28px;
+}
+
+#gameGrid {
+  display: grid;
+  width: 100%;
+  max-width: 800px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  margin: 10px auto;
+}
