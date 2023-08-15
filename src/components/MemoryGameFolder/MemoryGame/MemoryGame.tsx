@@ -78,7 +78,7 @@ const MemoryGame = () => {
     {loading && <Loading />}
     {match === 10 && <Modal />} 
     {!loading && (
-      <main id='gameMain'>
+      <main className={`gameMain ${match === 10 && 'blur'}`}>
         <div id='gameTitle'>
         <h1>Memory game</h1>
         </div>
