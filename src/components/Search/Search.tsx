@@ -19,7 +19,7 @@ const Search = () => {
 
   useEffect(() => {    
     const findCharacters = async () => {
-      setLoading(true);
+      setLoading(true);      
       const result = await fetch(searchURL)
       const data = await result.json();
       if (data.results === undefined) {
