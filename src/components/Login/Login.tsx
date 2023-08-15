@@ -6,6 +6,7 @@ import { createUser } from '../../userAPI';
 import Loading from '../Loading/Loading';
 import './Login.css'
 
+
 const Login = () => {
   const [user, setUser] = useState<string>('')
   const [loading, setLoading] = useState(false);
@@ -33,7 +34,7 @@ const Login = () => {
     </header>
     <main>     
       <section id='loginContainer'>
-        <img src="/src/images/loginPageImage.jpg" alt="" />
+        <img src="../../images/loginPageImage.jpg" alt="" />
         <form onSubmit={ handleSubmit }>
           <div>
           <h2>Login:</h2>
