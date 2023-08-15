@@ -24,7 +24,10 @@ const Header = () => {
   }
 
   const handleSubmit = () => {
-    navigate(`/home/search/${ search }`);    
+    const timeOut = setTimeout( ()=> {
+      navigate(`/home/search/${ search }`);
+    }, 1000);
+    clearTimeout(timeOut);
   }
 
   return(
