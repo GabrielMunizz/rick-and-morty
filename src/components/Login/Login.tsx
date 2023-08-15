@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { createUser } from '../../userAPI';
 import Loading from '../Loading/Loading';
 import './Login.css'
+import loginPageImage from '../../../public/images/loginPageImage.jpg'
 
 const Login = () => {
   const [user, setUser] = useState<string>('')
@@ -33,7 +34,7 @@ const Login = () => {
     </header>
     <main>     
       <section id='loginContainer'>
-        <img src="../../../public/images/loginPageImage.jpg" alt="" />
+        <img src={loginPageImage} alt="Login image" />
         <form onSubmit={ handleSubmit }>
           <div>
           <h2>Login:</h2>

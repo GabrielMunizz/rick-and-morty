@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Loading from '../Loading/Loading';
 import './NotFound.css'
+import notFoundImage from '../../../public/images/notFound.png'
 
 const NotFound = () => {
   const [loading, setLoading] = useState(false);
@@ -21,7 +22,7 @@ const NotFound = () => {
       {loading && <Loading />}
       {!loading && (
         <section id='notFound'>
-          <img src="/src/images/notFound.png" alt="Página não encontrada" />
+          <img src={notFoundImage} alt="Not found image" />
           <StyledBtn onClick={ handleClick }>Home</StyledBtn>
         </section>  
       )}
